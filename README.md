@@ -19,14 +19,21 @@ Parses through `edX_log_file` to generate the json needed to render three graphs
 Needs `edX_course_structure.json` so the problems are ordered by how they appear in the content.
 
 This script takes three parameters:
+
 1. `edX_course_structure.json` - edX json that gives the course structure
 2. `edX_log_file` - edX csv log file
 3. `output_header` - used for output files
 
 This script outputs two files:
+
 1. `output_header.log` - script prints progress and errors to this file along with summary info at the bottom
 2. `output_header.json` - json file holding all data needed to render the graphs
 
 ### Example
 Let's assume your course structure json was named TEST_structure_original.json and the log file was TEST.csv. And the javascript code one folder up expects the file containing the data to be data.json you would run:
 `./generate_json.py TEST_structure_original.json TEST.csv ../data`
+
+## run_tests.py
+This is the current set of tests for `generate_json.py` as bugs are found or functionally changed, this will also be updated.
+
+To get help information run `run_tests.py -help`
