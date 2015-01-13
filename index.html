@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
+    <!-- <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script> -->
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/d3_stacked_bar_graph.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="test.js"></script>
+  </head>
+  
+  <body>
+    <div class='container'>
+    </div>
+  </body>
+
+  <script>
+$(window).load(function () {
+  var dataFiles = {}
+//  <% for (var dataFile in dataset) { %>
+//    <% if (dataset.hasOwnProperty(dataFile)) { %>
+//      dataFiles["<%= dataFile %>"] = <%- JSON.stringify(dataset[dataFile]) %>;
+//    <% } %>
+//  <% } %>
+
+  // Make compatible with MoocRP
+  if ("data.json" in dataFiles) {
+    data = JSON.parse(dataFiles["data.json"]);
+  } else {
+    data = TestData;
+  }
+
+  buildGraphs(data);
+})
+  </script>
+</html>

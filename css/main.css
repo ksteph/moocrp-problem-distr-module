@@ -1,0 +1,18 @@
+.container {
+    position: relative;
+    width: 100%;
+    clear: both;
+}
+
+.problem_attempts_div {
+    position: relative;
+    width: 75%;
+    height: 600px;
+    margin-right: 2.5%;
+}
+
+.tooltip {
+    width: 250px;
+    background-color: lightgray;
+    padding: 3px;
+}

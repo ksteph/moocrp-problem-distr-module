@@ -1,0 +1,43 @@
+{
+  "i4x://BerkeleyX/TEST/course/2014_Test": {
+    "category": "course", 
+    "children": [
+      "i4x://BerkeleyX/TEST/chapter/Week1"
+    ], 
+    "metadata": {
+       "display_name": "Test"
+    }
+  },
+  "i4x://BerkeleyX/TEST/chapter/Week1": {
+    "category": "chapter", 
+    "children": [
+      "i4x://BerkeleyX/TEST/sequential/Week1_1"
+    ], 
+    "metadata": {
+      "display_name": "Week 1"
+    }
+  }, 
+  "i4x://BerkeleyX/TEST/sequential/Week1_1": {
+    "category": "sequential", 
+    "children": [
+      "i4x://BerkeleyX/TEST/vertical/vertical_0123456789ab"
+    ], 
+    "metadata": {
+      "display_name": "Week 1 Section 1"
+    }
+  }, 
+  "i4x://BerkeleyX/TEST/vertical/vertical_0123456789ab": {
+    "category": "vertical", 
+    "children": [
+      "i4x://BerkeleyX/TEST/problem/problem1"
+    ], 
+    "metadata": {}
+  }, 
+  "i4x://BerkeleyX/TEST/problem/problem1": {
+    "category": "problem", 
+    "children": [], 
+    "metadata": {
+      "display_name": "Problem 1"
+    }
+  }
+}
