@@ -31,9 +31,10 @@ This script outputs two files:
 
 ### Example
 Let's assume your course structure json was named TEST_structure_original.json and the log file was TEST.csv. And the javascript code one folder up expects the file containing the data to be data.json you would run:
+
 `./generate_json.py TEST_structure_original.json TEST.csv ../data`
 
 ## run_tests.py
 This is the current set of tests for `generate_json.py` as bugs are found or functionally changed, this will also be updated.
 
-To get help information run `run_tests.py -help`
+To get help information run `./run_tests.py -help`
