@@ -12,20 +12,20 @@ In the preprocess folder there are two scripts and a folder.
 ## generate_json.py
 Just running this script will print out help information.
 
-Usage: ./preprocess/generate_json.py <edX course_structure.json> <edX Log File> <output header>
+Usage: `./preprocess/generate_json.py edX_course_structure.json edX_log_file output_header`
 
-Parses through <edX Log File> to generate the json needed to render three graphs per problem: attempt distribution, grade distribution count, grade distribution fraction.
+Parses through `edX_log_file` to generate the json needed to render three graphs per problem: attempt distribution, grade distribution count, grade distribution fraction.
 
-Needs <edX course_structure.json> so the problems are ordered by how they appear in the content.
+Needs `edX_course_structure.json` so the problems are ordered by how they appear in the content.
 
 This script takes three parameters:
-1. edX course_structure.json - edX json that gives the course structure
-2. edX Log File - edX csv log file
-3. output header - used for output files
+1. `edX_course_structure.json` - edX json that gives the course structure
+2. `edX_log_file` - edX csv log file
+3. `output_header` - used for output files
 
 This script outputs two files:
-1. <output header>.log - script prints progress and errors to this file along with summary info at the bottom
-2. <output header>.json - json file holding all data needed to render the graphs
+1. `output_header.log` - script prints progress and errors to this file along with summary info at the bottom
+2. `output_header.json` - json file holding all data needed to render the graphs
 
 ### Example
 Let's assume your course structure json was named TEST_structure_original.json and the log file was TEST.csv. And the javascript code one folder up expects the file containing the data to be data.json you would run:
