@@ -29,6 +29,8 @@ This script outputs two files:
 1. `output_header.log` - script prints progress and errors to this file along with summary info at the bottom
 2. `output_header.json` - json file holding all data needed to render the graphs
 
+This script can take a **while**
+
 ### Example
 Let's assume your course structure json was named TEST_structure_original.json and the log file was TEST.csv. And the javascript code one folder up expects the file containing the data to be data.json you would run:
 
