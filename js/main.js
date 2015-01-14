@@ -4,7 +4,7 @@ aryCGradeGraph = [];
 aryGradeGraph = [];
 
 buildGraphs = function(data) {
-  var container = d3.select(".container");
+  var container = d3.select(".ksm-container");
   var graphWidth = 1000;
   var graphHeight = 250
   for (var i in data) {
