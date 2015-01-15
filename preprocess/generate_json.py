@@ -186,7 +186,7 @@ for row in csvReader:
         logTo(outLog, "TIME_NOT_PARSE\tLINE_{}\t{}".format(cLine, row[0]))
         continue # not useful if don't have time
  
-     currStuProb = StuProb(student, probId)
+      currStuProb = StuProb(student, probId)
       currStuProbData = dictStuProb2Data[currStuProb]
 
       # Check if it's a bad StuProb #
