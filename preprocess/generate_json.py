@@ -168,24 +168,25 @@ for row in csvReader:
   elif row[0] == "time": #Header row
     continue
   else:
-    # Clean a Data #
-    timestamp = edxLogConvertTimestamp(row[0])
-    student = row[2]
     verb = row[3]
-    event = ast.literal_eval(row[9])
-
-    if timestamp == None:
-      logTo(outLog, "TIME_NOT_PARSE\tLINE_{}\t{}".format(cLine, row[0]))
-      continue # not useful if don't have time
 
     # Only verb we currently care about is the one when student chooses an
     # answer and submits it
     if verb == "problem_check":
+      # Clean a Data #
+      timestamp = edxLogConvertTimestamp(row[0])
+      student = row[2]
+      event = ast.literal_eval(row[9])
+
       probId = event["problem_id"]
       attempt = event["attempts"]
       answers = event["answers"]
 
-      currStuProb = StuProb(student, probId)
+      if timestamp == None:
+        logTo(outLog, "TIME_NOT_PARSE\tLINE_{}\t{}".format(cLine, row[0]))
+        continue # not useful if don't have time
+ 
+     currStuProb = StuProb(student, probId)
       currStuProbData = dictStuProb2Data[currStuProb]
 
       # Check if it's a bad StuProb #
