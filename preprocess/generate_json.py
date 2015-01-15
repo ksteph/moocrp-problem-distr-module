@@ -123,8 +123,9 @@ def traverseCourseTree(currEdxId, dictTree, currProbCount, dictProb2Data):
     currProbCount += 1
   elif len(currNode["children"]) > 0:
     for child in currNode["children"]:
-      currProbCount = traverseCourseTree(
-        child, dictTree, currProbCount, dictProb2Data)
+      if child in dictTree:
+        currProbCount = traverseCourseTree(
+          child, dictTree, currProbCount, dictProb2Data)
 
   return currProbCount
 
