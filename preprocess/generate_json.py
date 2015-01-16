@@ -48,13 +48,13 @@ def edxLogConvertTimestamp(strTimestamp):
 minArgLen = 4
 maxArgLen = minArgLen
 if minArgLen > len(sys.argv) or len(sys.argv) > maxArgLen:
-  print " Usage:", sys.argv[0], "<edX course_structure.json> <edX Log File> <output header>\n"
+  print " Usage:", sys.argv[0], "<edX course_structure.json> <xAPI Log File> <output header>\n"
   print """
-  Parses through <edX Log File> to generate the json needed to render three
+  Parses through <xAPI Log File> to generate the json needed to render three
   graphs per problem: attempt distribution, grade distribution count, grade
   distribution fraction.
 
-  Needs <edX course_structure.json> so the problems are ordered by how they
+  Needs <xAPI course_structure.json> so the problems are ordered by how they
   appear in the content.
 
   Files generated, starts with <output header>:
