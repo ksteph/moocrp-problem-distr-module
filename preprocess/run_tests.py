@@ -39,7 +39,6 @@ aryAllTests = [
       strOutHeader),
     "outputForDiff": strOutHeader+".json",
     "expectedOut": "test/output/gj_simple.txt",
-    "noDB": True,
   },
   {
     "name": "generate_json.py: Simple and event with different verb",
@@ -49,7 +48,6 @@ aryAllTests = [
       strOutHeader),
     "outputForDiff": strOutHeader+".json",
     "expectedOut": "test/output/gj_simple.txt",
-    "noDB": True,
   },
   {
     "name": "generate_json.py: Simple and events with bad timestamp",
@@ -59,7 +57,6 @@ aryAllTests = [
       strOutHeader),
     "outputForDiff": strOutHeader+".json",
     "expectedOut": "test/output/gj_simple.txt",
-    "noDB": True,
   },
   {
     "name": "generate_json.py: Simple and event with too many cells",
@@ -69,7 +66,6 @@ aryAllTests = [
       strOutHeader),
     "outputForDiff": strOutHeader+".json",
     "expectedOut": "test/output/gj_simple.txt",
-    "noDB": True,
   },
   {
     "name": "generate_json.py: Simple and event with too many cells",
@@ -79,7 +75,6 @@ aryAllTests = [
       strOutHeader),
     "outputForDiff": strOutHeader+".json",
     "expectedOut": "test/output/gj_simple.txt",
-    "noDB": True,
   },
   #05
   {
@@ -90,7 +85,6 @@ aryAllTests = [
       strOutHeader),
     "outputForDiff": strOutHeader+".json",
     "expectedOut": "test/output/gj_complex.txt",
-    "noDB": True,
   },
   {
     "name": "generate_json.py: Complex with duplicate attempt for a student problem",
@@ -100,7 +94,6 @@ aryAllTests = [
       strOutHeader),
     "outputForDiff": strOutHeader+".json",
     "expectedOut": "test/output/gj_complex.txt",
-    "noDB": True,
   },
   {
     "name": "generate_json.py: Complex with missing attempt for a student problem",
@@ -110,7 +103,6 @@ aryAllTests = [
       strOutHeader),
     "outputForDiff": strOutHeader+".json",
     "expectedOut": "test/output/gj_complex.txt",
-    "noDB": True,
   },
   {
     "name": "generate_json.py: Complex with out of order attempt for a student problem",
@@ -120,7 +112,6 @@ aryAllTests = [
       strOutHeader),
     "outputForDiff": strOutHeader+".json",
     "expectedOut": "test/output/gj_complex.txt",
-    "noDB": True,
   },
 ]
 
