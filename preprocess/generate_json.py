@@ -26,10 +26,15 @@ def logTo(output, strLog):
 def edxLogConvertTimestamp(strTimestamp):
   timestamp = None
   timestampParts = strTimestamp.partition(".")
+  decimalTime = timestampParts[2]
+
+  if "+" in decimalTime:
+    # I think that's a timezone, just remove it
+    decimalTime = decimalTime.partition("+")[0]
 
   try:
     timestampStruct = time.strptime(timestampParts[0], "%Y-%m-%dT%H:%M:%S")
-    decimalStr = timestampParts[2] if (len(timestampParts[2]) > 0) else "0"
+    decimalStr = decimalTime if (len(decimalTime) > 0) else "0"
     timestamp = calendar.timegm(timestampStruct) + float("." + decimalStr)
   except ValueError as e:
     timestamp = None
@@ -111,6 +116,7 @@ cStuProbDupAttempt = 0
 cStuProbMissingAttempt = 0
 cStuProbOutOfOrderAttempt = 0
 cStuProbGood = 0
+cBadTimestamp = 0
 
 
 ##############################
@@ -184,6 +190,7 @@ for row in csvReader:
 
       if timestamp == None:
         logTo(outLog, "TIME_NOT_PARSE\tLINE_{}\t{}".format(cLine, row[0]))
+        cBadTimestamp += 1
         continue # not useful if don't have time
  
       currStuProb = StuProb(student, probId)
@@ -218,11 +225,14 @@ for row in csvReader:
   # Close: if len(row) != 13: else:
 # Close: for row in csvReader:
 inputLogFile.close()
+logTo(outLog, "DONE_PARSING_CSV")
 
 
 ###########################
 # Count things for graphs #
 ###########################
+logTo(outLog, "COUNTING_FOR_GRAPHS")
+
 for currStuProb, currStuProbData in dictStuProb2Data.iteritems():
   if currStuProbData["isDup"]:
     continue
@@ -402,6 +412,8 @@ ELAPSE_TIME: {}
 ==========================
 LINES_PROCESSED: {}
 ==========================
+BAD_TIMESTAMPS: {}
+==========================
 STUDENT_PROBLEMS_WITH_DUPS_ATTEMPTS: {}
 STUDENT_PROBLEMS_WITH_MISSING_ATTEMPTS: {}
 STUDENT_PROBLEMS_WITH_OUT_OF_ORDER_ATTEMPTS: {}
@@ -410,7 +422,9 @@ STUDENT_PROBLEMS_THAT_ARE_GOOD: {}
   str(datetime.timedelta(seconds=elapseTime)),
 
   cLine,
-  
+
+  cBadTimestamp,
+
   cStuProbDupAttempt,
   cStuProbMissingAttempt,
   cStuProbOutOfOrderAttempt,

@@ -113,6 +113,15 @@ aryAllTests = [
     "outputForDiff": strOutHeader+".json",
     "expectedOut": "test/output/gj_complex.txt",
   },
+  {
+    "name": "generate_json.py: Simple and events with timestamp that has timezone",
+    "cmd": "./generate_json.py {} {} {}".format(
+      "test/input/simple_course_struct.json",
+      "test/input/genJson_simple_timezoneTimestamp.csv",
+      strOutHeader),
+    "outputForDiff": strOutHeader+".json",
+    "expectedOut": "test/output/gj_simple.txt",
+  },
 ]
 
 i=0
