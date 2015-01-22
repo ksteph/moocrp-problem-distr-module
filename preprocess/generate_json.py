@@ -89,7 +89,12 @@ logTo(outLog, "COURSE_STRUCTURE_FILENAME: " + inputCourseStructFilename)
 logTo(outLog, "LOG_FILENAME: " + inputLogFilename)
 
 cmd = "wc -l {}| awk '{{print $1}}'".format(inputLogFilename)
-fileLen = int(subprocess.check_output(cmd, shell=True))
+outCmd = subprocess.check_output(cmd, shell=True)
+outCmd = outCmd.strip()
+fileLen = -1
+print "\"{}\"".format(outCmd)
+if outCmd.isdigit():
+  fileLen = int(outCmd)
 logTo(outLog, "FILE_LENGTH: {}".format(fileLen))
 
 
