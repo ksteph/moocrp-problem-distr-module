@@ -15,9 +15,10 @@ buildGraphs = function(data) {
       .style("position", "relative")
       .style("width", graphWidth + 100);
 
-    strAncestors = probData["ancestors"].join(" > ")
-    
-    divMain.append("h1").text(strAncestors + " > " + probData["display_name"]);
+    if ("ancestors" in probData && "display_name" in probData) {
+      strAncestors = probData["ancestors"].join(" > ")
+      divMain.append("h1").text(strAncestors + " > " + probData["display_name"]);
+    }
     divMain.append("h2").text(probData["problem_id"]);
 
     // Attempt stuff
