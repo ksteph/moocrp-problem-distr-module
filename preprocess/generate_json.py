@@ -99,7 +99,9 @@ logTo(outLog, "FILE_LENGTH: {}".format(fileLen))
 StuProb = namedtuple("StuProb", "student problem")
 Event = namedtuple("Event", "timestamp attempt score")
 
-dictProb2Data = defaultdict(lambda: {"index": -1, "maxPoints": -1})
+dictProb2Data = defaultdict(lambda: {
+    "index": -1, "maxPoints": -1, "aryAncestor": []
+    })
 
 dictStuProb2Data = defaultdict(lambda: {
     "aryEvent": [],
@@ -122,16 +124,19 @@ cBadTimestamp = 0
 ##############################
 # Process course_struct.json #
 ##############################
-def traverseCourseTree(currEdxId, dictTree, currProbCount, dictProb2Data):
+def traverseCourseTree(currEdxId, dictTree, currProbCount, dictProb2Data, currAryAncestor):
   currNode = dictTree[currEdxId]
   if currNode["category"] == "problem":
     dictProb2Data[currEdxId]["index"] = currProbCount
+    dictProb2Data[currEdxId]["aryAncestor"] = currAryAncestor
     currProbCount += 1
   elif len(currNode["children"]) > 0:
     for child in currNode["children"]:
       if child in dictTree:
+        newAryAncestor = list(currAryAncestor)
+        newAryAncestor.append(currEdxId)
         currProbCount = traverseCourseTree(
-          child, dictTree, currProbCount, dictProb2Data)
+          child, dictTree, currProbCount, dictProb2Data, newAryAncestor)
 
   return currProbCount
 
@@ -153,7 +158,7 @@ if edxIdCourse is None:
 
 # Traverse tree to get problem indices #
 logTo(outLog, "EDX_ID_COURSE:" + edxIdCourse)
-traverseCourseTree(edxIdCourse, dictCourseStruct, 0, dictProb2Data)
+traverseCourseTree(edxIdCourse, dictCourseStruct, 0, dictProb2Data, [])
 
 
 ####################
@@ -384,12 +389,22 @@ for edxId, probData in aryProbItems:
 
     # Close: for i in range(maxAttempt):
   # Close: if edxId in dictProb2MaxAttempt2Count:
-  
+
+  aryAncestorDisplayName = []
+  for edxIdAncestor in probData["aryAncestor"]:
+    if "display_name" in dictCourseStruct[edxIdAncestor]["metadata"]:
+      aryAncestorDisplayName.append(
+        dictCourseStruct[edxIdAncestor]["metadata"]["display_name"])
+    else:
+      aryAncestorDisplayName.append("?")
+
   aryJsonData.append({
-      "problem_id": edxId,
+      "grade_count_data": aryGradeCountData,
+      "ancestors": aryAncestorDisplayName,
+      "display_name": dictCourseStruct[edxId]["metadata"]["display_name"],
       "attempt_data": aryAttemptData,
       "grade_data": aryGradeData,
-      "grade_count_data": aryGradeCountData,
+      "problem_id": edxId,
       })
 
 # Close: for edxId, probData in aryProbItems:

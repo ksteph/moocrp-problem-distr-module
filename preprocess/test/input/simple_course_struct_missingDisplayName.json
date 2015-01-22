@@ -29,33 +29,15 @@
   "i4x://BerkeleyX/TEST/vertical/vertical_0123456789ab": {
     "category": "vertical", 
     "children": [
-      "i4x://BerkeleyX/TEST/problem/problem1",
-      "i4x://BerkeleyX/TEST/problem/problem2",
-      "i4x://BerkeleyX/TEST/problem/problem3"
+      "i4x://BerkeleyX/TEST/problem/problem1"
     ], 
-    "metadata": {
-      "display_name": "Quiz 1"
-    }
+    "metadata": {}
   }, 
   "i4x://BerkeleyX/TEST/problem/problem1": {
     "category": "problem", 
     "children": [], 
     "metadata": {
       "display_name": "Problem 1"
-    }
-  }, 
-  "i4x://BerkeleyX/TEST/problem/problem2": {
-    "category": "problem", 
-    "children": [], 
-    "metadata": {
-      "display_name": "Problem 2"
-    }
-  }, 
-  "i4x://BerkeleyX/TEST/problem/problem3": {
-    "category": "problem", 
-    "children": [], 
-    "metadata": {
-      "display_name": "Problem 3"
     }
   }
 }

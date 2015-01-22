@@ -17,6 +17,13 @@
         "xValue": 1
       }
     ], 
+    "ancestors": [
+      "Test", 
+      "Week 1", 
+      "Section 1", 
+      "Quiz 1"
+    ], 
+    "display_name": "Problem 1", 
     "attempt_data": [
       {
         "stackData": [
@@ -96,6 +103,13 @@
         "xValue": 3
       }
     ], 
+    "ancestors": [
+      "Test", 
+      "Week 1", 
+      "Section 1", 
+      "Quiz 1"
+    ], 
+    "display_name": "Problem 2", 
     "attempt_data": [
       {
         "stackData": [
@@ -210,6 +224,13 @@
         "xValue": 2
       }
     ], 
+    "ancestors": [
+      "Test", 
+      "Week 1", 
+      "Section 1", 
+      "Quiz 1"
+    ], 
+    "display_name": "Problem 3", 
     "attempt_data": [
       {
         "stackData": [

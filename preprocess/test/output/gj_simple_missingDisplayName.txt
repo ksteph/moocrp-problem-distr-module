@@ -21,7 +21,7 @@
       "Test", 
       "Week 1", 
       "Section 1", 
-      "Quiz 1"
+      "?"
     ], 
     "display_name": "Problem 1", 
     "attempt_data": [

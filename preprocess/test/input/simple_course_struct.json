@@ -23,7 +23,7 @@
       "i4x://BerkeleyX/TEST/vertical/vertical_0123456789ab"
     ], 
     "metadata": {
-      "display_name": "Week 1 Section 1"
+      "display_name": "Section 1"
     }
   }, 
   "i4x://BerkeleyX/TEST/vertical/vertical_0123456789ab": {
@@ -31,7 +31,9 @@
     "children": [
       "i4x://BerkeleyX/TEST/problem/problem1"
     ], 
-    "metadata": {}
+    "metadata": {
+      "display_name": "Quiz 1"
+    }
   }, 
   "i4x://BerkeleyX/TEST/problem/problem1": {
     "category": "problem", 
