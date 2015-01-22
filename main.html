@@ -30,6 +30,7 @@ $(window).load(function () {
     data = dataFiles["data.json"];
   } else {
     data = TestData;
+    console.log("Using test default data instead of data.json.")
   }
 
   buildGraphs(data);
