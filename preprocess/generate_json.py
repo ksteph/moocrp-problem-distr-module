@@ -161,8 +161,9 @@ if edxIdCourse is None:
   print "ERROR: Check log for what happened"
   sys.exit(1)
 
-# Traverse tree to get problem indices #
 logTo(outLog, "EDX_ID_COURSE:" + edxIdCourse)
+
+# Traverse tree to get problem indices #
 traverseCourseTree(edxIdCourse, dictCourseStruct, 0, dictProb2Data, [])
 
 
